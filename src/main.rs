@@ -29,6 +29,28 @@ fn read_cal() -> std::io::Result<i32> {
     Ok(contents.parse::<i32>().unwrap())
 }
 
+fn BPtest()-> i32{
+    println!("how many you do?");
+
+    let std= stdin();
+    let times= std.lock().lines()
+        .next().unwrap().unwrap()
+        .parse::<f32>().unwrap();
+
+    (times* 1.26) as i32
+}
+
+fn daily_minus() -> i32{
+    println!("took a food");
+
+    let std= stdin();
+    let cal= std.lock().lines()
+        .next().unwrap().unwrap()
+        .parse::<i32>().unwrap();
+
+    2500-cal
+}
+
 fn select_simple_menu()-> i32{
     const SWIMMING:i32 = 250;
     const JOGGING:i32= 250;
@@ -36,6 +58,8 @@ fn select_simple_menu()-> i32{
     println!("0. input cal");
     println!("1. Swimming: 250cal");
     println!("2. jogging: 250cal");
+    println!("3. burpee: per 1.26cal");
+    println!("99. food");
     
 
     let std= stdin();
@@ -47,6 +71,8 @@ fn select_simple_menu()-> i32{
         0 => return input_cal(),
         1 => return 250,
         2 => return 250,
+        3 => return BPtest(),
+        99 => return daily_minus(),
         _ => 0
     };
 
@@ -67,7 +93,7 @@ fn main() {
     remained_cal-= minus;
 
     println!("Remained: {}", remained_cal);
-    println!("Remained: {}", remained_cal/7800);
+    println!("Remained: {}", remained_cal/7800 + 1);
 
     file_save(remained_cal);
 
