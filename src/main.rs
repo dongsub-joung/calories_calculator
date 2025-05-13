@@ -66,7 +66,9 @@ fn main() {
     
     remained_cal-= minus;
 
-    println!("{}", remained_cal);
+    println!("Remained: {}", remained_cal);
+    println!("Remained: {}", remained_cal/7800);
 
     file_save(remained_cal);
+
 }
