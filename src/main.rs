@@ -54,11 +54,13 @@ fn daily_minus() -> i32{
 fn select_simple_menu()-> i32{
     const SWIMMING:i32 = 250;
     const JOGGING:i32= 250;
+    const WEIGHT_TRAINING: i32= 300;
 
     println!("0. input cal");
     println!("1. Swimming: 250cal");
     println!("2. jogging: 250cal");
     println!("3. burpee: per 1.26cal");
+    println!("4. weight training: 300cal");
     println!("99. food");
     
 
@@ -69,9 +71,10 @@ fn select_simple_menu()-> i32{
 
     let selcted= match input_number {
         0 => return input_cal(),
-        1 => return 250,
-        2 => return 250,
+        1 => return SWIMMING,
+        2 => return JOGGING,
         3 => return BPtest(),
+        4 => return WEIGHT_TRAINING,
         99 => return daily_minus(),
         _ => 0
     };
