@@ -95,9 +95,10 @@ fn main() {
     
     remained_cal-= minus;
 
+    const FAT: i32= 7800;
+    const GAP:i32= 1;
     println!("Remained: {}", remained_cal);
-    println!("Remained: {}", remained_cal/7800 + 1);
+    println!("Remained: {}", remained_cal/FAT + GAP);
 
-    file_save(remained_cal);
-
+    _= file_save(remained_cal);
 }
